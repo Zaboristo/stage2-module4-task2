@@ -12,7 +12,7 @@ public class ProxyConnection implements Connection {
     }
 
     public void reallyClose() {
-        instance.releaseConnection(this.realConnection);
+        close();
         this.realConnection.close();
     }
 
@@ -23,7 +23,7 @@ public class ProxyConnection implements Connection {
 
     @Override
     public boolean isClosed() {
-        return this.realConnection.isClosed();
+        return realConnection.isClosed();
     }
     // Implement methods here!
 }
